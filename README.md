@@ -28,4 +28,4 @@ The app has no build step and no runtime dependencies. It is designed to be depl
 
 Norwegian words live in `words.js`. Add more entries by difficulty and category without changing the app logic.
 
-The bundled list is a curated Bokmål starter pack for party gameplay. It is intentionally not a raw import from a dictionary or corpus, because broad word lists need filtering, categorization, and license review before being shipped.
+The bundled list combines curated party-game words with a filtered Bokmål frequency-list expansion from Wiktionary's Norwegian Bokmål wordlist, which is based on OpenSubtitles. The app ships at least 1,000 words for each difficulty level.
