@@ -1,4 +1,4 @@
-var CACHE_NAME = "norsk-alias-v4";
+var CACHE_NAME = "norsk-alias-v5";
 var APP_SHELL = [
   "./",
   "./index.html",

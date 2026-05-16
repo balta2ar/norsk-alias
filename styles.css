@@ -288,13 +288,13 @@ legend {
   text-align: center;
 }
 
-.recap-lists {
+.recap-list-panel {
   display: grid;
   gap: 14px;
   margin: 18px 0;
 }
 
-.recap-lists section {
+.recap-list-panel section {
   padding: 14px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -321,9 +321,19 @@ legend {
   font-weight: 800;
 }
 
-.word-list.muted li {
+.word-list li.is-correct {
+  background: #edf7f1;
+  color: #163f2a;
+}
+
+.word-list li.is-skipped {
   background: #f8eeee;
   color: #69342d;
+}
+
+.word-list strong {
+  flex: 0 0 auto;
+  font-size: 0.82rem;
 }
 
 .empty-state {

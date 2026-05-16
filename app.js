@@ -42,8 +42,7 @@
     els.skipButton = document.getElementById("skip-button");
     els.recapTeam = document.getElementById("recap-team");
     els.roundScore = document.getElementById("round-score");
-    els.correctList = document.getElementById("correct-list");
-    els.skippedList = document.getElementById("skipped-list");
+    els.roundWordList = document.getElementById("round-word-list");
     els.nextRound = document.getElementById("next-round");
     els.teamScores = [
       document.getElementById("team-0-score"),
@@ -266,8 +265,7 @@
       card.classList.toggle("active", Number(card.dataset.recapTeamCard) === finishedRound.team);
     });
 
-    renderResultList(els.correctList, finishedRound.results.filter(byResult("correct")));
-    renderResultList(els.skippedList, finishedRound.results.filter(byResult("skipped")));
+    renderResultList(els.roundWordList, finishedRound.results);
   }
 
   function renderResultList(list, items) {
@@ -283,19 +281,16 @@
     items.forEach(function (item) {
       var li = document.createElement("li");
       var word = document.createElement("span");
-      var category = document.createElement("small");
+      var status = document.createElement("strong");
+
+      li.className = item.result === "correct" ? "is-correct" : "is-skipped";
       word.textContent = item.word;
-      category.textContent = categoryLabel(item.category);
+      status.textContent = item.result === "correct" ? "Gjettet" : "Pass";
+
       li.appendChild(word);
-      li.appendChild(category);
+      li.appendChild(status);
       list.appendChild(li);
     });
-  }
-
-  function byResult(result) {
-    return function (item) {
-      return item.result === result;
-    };
   }
 
   function onPointerDown(event) {
