@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#102820">
+    <title>Norsk Alias</title>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="icon" href="./icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./words.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="setup-screen" class="screen screen-active" aria-labelledby="setup-title">
+        <div class="topbar">
+          <div>
+            <p class="eyebrow">Norsk Alias</p>
+            <h1 id="setup-title">Velg runde</h1>
+          </div>
+          <button id="reset-game" class="icon-button" type="button" title="Nullstill spill" aria-label="Nullstill spill">↺</button>
+        </div>
+
+        <div class="scoreboard" aria-label="Poeng">
+          <article class="team-card active" data-team-card="0">
+            <span>Lag 1</span>
+            <strong id="team-0-score">0</strong>
+          </article>
+          <article class="team-card" data-team-card="1">
+            <span>Lag 2</span>
+            <strong id="team-1-score">0</strong>
+          </article>
+        </div>
+
+        <form id="round-form" class="setup-form">
+          <fieldset>
+            <legend>Vanskelighetsgrad</legend>
+            <div id="difficulty-options" class="segmented"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Kategori</legend>
+            <div id="category-options" class="category-grid"></div>
+          </fieldset>
+
+          <button class="primary-action" type="submit">
+            Start <span id="active-team-label">Lag 1</span>
+          </button>
+        </form>
+      </section>
+
+      <section id="play-screen" class="screen play-screen" aria-labelledby="play-title">
+        <div class="round-header">
+          <div>
+            <p id="play-team" class="eyebrow">Lag 1</p>
+            <h1 id="play-title">Forklar ordet</h1>
+          </div>
+          <div id="timer" class="timer" aria-live="polite">120</div>
+        </div>
+
+        <div id="word-card" class="word-card" tabindex="0" aria-live="polite">
+          <p id="current-category" class="word-category">Generelt</p>
+          <div id="current-word" class="current-word">Klar?</div>
+        </div>
+
+        <div class="round-actions" aria-label="Rundehandlinger">
+          <button id="skip-button" class="secondary-action" type="button">Pass</button>
+          <button id="correct-button" class="primary-action" type="button">Riktig</button>
+        </div>
+      </section>
+
+      <section id="recap-screen" class="screen" aria-labelledby="recap-title">
+        <div class="topbar">
+          <div>
+            <p id="recap-team" class="eyebrow">Lag 1</p>
+            <h1 id="recap-title">Runden er ferdig</h1>
+          </div>
+          <div id="round-score" class="round-score">+0</div>
+        </div>
+
+        <div class="scoreboard" aria-label="Poeng etter runden">
+          <article class="team-card" data-recap-team-card="0">
+            <span>Lag 1</span>
+            <strong id="recap-team-0-score">0</strong>
+          </article>
+          <article class="team-card" data-recap-team-card="1">
+            <span>Lag 2</span>
+            <strong id="recap-team-1-score">0</strong>
+          </article>
+        </div>
+
+        <div class="recap-lists">
+          <section>
+            <h2>Riktige</h2>
+            <ul id="correct-list" class="word-list"></ul>
+          </section>
+          <section>
+            <h2>Pass</h2>
+            <ul id="skipped-list" class="word-list muted"></ul>
+          </section>
+        </div>
+
+        <button id="next-round" class="primary-action" type="button">Neste lag</button>
+      </section>
+    </main>
+  </body>
+</html>
